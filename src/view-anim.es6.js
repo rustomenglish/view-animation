@@ -3,19 +3,6 @@ export class Anim {
     constructor() {
         this.animations = Array.prototype.slice.call(document.querySelectorAll('*[data-animation]'));
         this.checkHorizontal = false;
-        this.setup();
-    }
-
-    static init() {
-        let anim = this;
-        anim.checkViewAnimations();
-        window.addEventListener("scroll", function() {
-            anim.checkViewAnimations();
-        });
-        return anim;
-    }
-
-    setup() {
         for (let i = this.animations.length - 1; i >= 0; i--) {
             let el = this.animations[i];
             let delay = el.getAttribute("data-animation-delay");
@@ -35,6 +22,15 @@ export class Anim {
                 this.animations.splice(i, 1);
             }
         }
+    }
+
+    init() {
+        let anim = this;
+        anim.checkViewAnimations();
+        window.addEventListener("scroll", function() {
+            anim.checkViewAnimations();
+        });
+        return anim;
     }
 
     checkViewAnimations() {
