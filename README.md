@@ -1,16 +1,18 @@
 # view-anim
-A lightweight library with 0 dependencies that provides functionality to play animations when the element is visible in the viewport.
-Included are a standard Javascript version **view-anim.js** and an ES6 version **view-anim.es6.js**.
+A lightweight library that provides functionality to play animations when the element is visible in the viewport - no dependencies!
+Included are a standard Javascript version **view-anim.js** and an ES2015 version **view-anim.es6.js**.
 
 ## Usage
 
 
 ```js
-var = new Anim();
+<script src="view_anim.min.js"></script>
+...
+var anim = new Anim();
 ```
 
 ```js
-// ES6
+// ES2015
 import { Anim } from "view-anim";
 let anim = new Anim().init();
 ```
@@ -44,7 +46,7 @@ To repeat an element's animation after it has gone out of view, use the `data-an
 
 **Checking visible elements**
 
-By default, the elements are checked when a new `Anim` is created and when the user scrolls (in the `init` function on ES6 version). You can manually trigger this by calling `checkViewAnimations`
+By default, the elements are checked when a new `Anim` is created(`init` function in the ES2015 version) and when the user scrolls. You can manually trigger this by calling `anim.checkViewAnimations()`
 
 ### Options
 
@@ -61,9 +63,9 @@ Minimum browser support of **IE10** (only 11 tested) and any modern browser will
 
 **Internet Explorer SVG**
 
-The library uses `classList` for managing an element's class; while this has been supported on IE since version 10, it does not support classList on SVG elements, see [caniuse](http://caniuse.com/#search=classList). If IE is detected, SVG elements will automatically have their animations played and will not be tested in `checkViewAnimations`.
+The library uses `classList` for managing an element's class; while this has been supported on IE since version 10, it does not support classList on SVG elements, see [caniuse](http://caniuse.com/#search=classList). If IE is detected, SVG elements will automatically have their animations played and will not be checked in `checkViewAnimations`.
 
-Since IE doesn't support SVG element property animations/transitions such as `fill` you can work around this by wrapping the SVG in a `div` and animating that.
+IE also doesn't animate SVG properties properly, such as `fill`. A work around can be wrapping the SVG in a container e.g `div`, and applying the animations to that.
 
 ### License
 MIT
