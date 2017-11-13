@@ -1,0 +1,30 @@
+{
+  "name": "view-animation",
+  "version": "1.0.0",
+  "description": "A library for handling animations of in-view elements.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --watch",
+    "build": "webpack -p",
+    "full": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imber21/view-animation.git"
+  },
+  "author": "Rustom English",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imber21/view-animation/issues"
+  },
+  "homepage": "https://github.com/imber21/view-animation#readme",
+  "dependencies": {
+    "throttle-debounce": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "webpack": "^3.2.0"
+  }
+}

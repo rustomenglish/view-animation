@@ -1,0 +1,81 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>View Animation - Example 1</title>
+	<style>
+		html {
+			font-size: 100%;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			background: #333;
+		}
+		.container {
+			max-width: 80vw;
+			width: 100%;
+			min-height: 100vh;
+			margin: 0 auto;
+		}
+		
+		.row {
+			display: flex;
+			flex-flow: row wrap;
+		}
+
+		.col {
+			flex: 0 0 50%;
+			height: 50vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #fafafa;
+			font-size: 3rem;
+			font-weight: 700;
+		}
+		
+		.left {
+			opacity: 0;
+			transition: 2000ms;
+		}
+
+		.led {
+			opacity: 1;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col left" data-animation="led">1</div>
+			<div class="col">2</div>
+		</div>
+		<div class="row">
+			<div class="col">3</div>
+			<div class="col">4</div>
+		</div>
+	</div>
+	<div class="container container2">
+		<div class="row">
+			<div class="col">1</div>
+			<div class="col">2</div>
+		</div>
+		<div class="row">
+			<div class="col">3</div>
+			<div class="col left" data-animation="led">4</div>
+		</div>
+	</div>
+	<script src="../dist/view-anim.js"></script> 
+	<script>
+		(function() {
+			document.addEventListener('DOMContentLoaded', function() {
+				var lul = new ViewAnimation();
+				lul.init();
+			});
+		})();
+	</script>
+</body>
+</html>
